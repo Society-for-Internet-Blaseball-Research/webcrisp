@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  dam:
+    image: "salmon/dam"
+    networks:
+      - ocean
+  
+  river:
+    image: "salmon/river"
+    networks:
+      - ocean
+
+  nginx:
+    image: "salmon/nginx"
+    networks:
+      - ocean
+    ports:
+      - "9999:80"
+
+networks:
+  ocean:
