@@ -6,7 +6,6 @@ def create_app():
     config = configparser.ConfigParser()
     config.read('river.ini')
     app = Flask(__name__)
-
     app.config['ZMQURL'] = config['app']['zmq_url']
 
     def get_sock():
@@ -26,7 +25,6 @@ def create_app():
             sock.close()
 
     @app.route('/sim',methods=['POST'])
-    @compress.compressed()
     def sim():
         sock = get_sock()
         sock.send_json(request.get_json(force=True))
