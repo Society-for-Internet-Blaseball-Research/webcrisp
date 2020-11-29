@@ -20,5 +20,6 @@ COPY requirements.txt /home/crisp/requirements.txt
 COPY broker.ini /home/crisp/broker.ini
 COPY crisp.exe /home/crisp/crisp.exe
 WORKDIR /home/crisp/
+RUN winecfg
 
 CMD ["python3", "dam.py"]

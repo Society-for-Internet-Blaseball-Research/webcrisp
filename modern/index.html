@@ -21,19 +21,22 @@
                         <li class="dropdown-submenu">
                             <a class="dropdown-item dropdown-toggle" href="#">Fishery Graphs</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item graph-toggle" id="abd" data-graph="abd" href="#">Abundance Index</a></li>
+                                <li><a class="dropdown-item graph-toggle" data-graph="abd" href="#">Abundance Index</a></li>
+                                <li><a class="dropdown-item graph-toggle" data-graph="catch" href="#">Catches</a></li>
+                                <!--
                                 <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Catches</a>
                                     <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item graph-toggle" data-graph="cat" href="#">Total</a></li>
+                                      <li><a class="dropdown-item graph-toggle" data-graph="catch" href="#">Total</a></li>
                                       <li><a class="dropdown-item graph-toggle" href="#">Preterminal</a></li>
                                       <li><a class="dropdown-item graph-toggle" href="#">Terminal</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Incindental Mortality</a>
+                              -->
+                                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Incidental Mortality</a>
                                     <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item graph-toggle" href="#">Total (CNR+Shakers)</a></li>
-                                      <li><a class="dropdown-item graph-toggle" href="#">Sublegal CNR</a></li>
-                                      <li><a class="dropdown-item graph-toggle" href="#">Legal CNR</a></li>
+                                      <li><a class="dropdown-item graph-toggle" data-graph="tim" href="#">Total (CNR+Shakers)</a></li>
+                                      <li><a class="dropdown-item graph-toggle" data-graph="sim" href="#">Sublegal CNR</a></li>
+                                      <li><a class="dropdown-item graph-toggle" data-graph="lim" href="#">Legal CNR</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -46,8 +49,12 @@
                         <li class="dropdown-submenu">
                             <a class="dropdown-item dropdown-toggle" href="#">Stock Graphs</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item graph-toggle" href="#">Abundances</a></li>
-                                <li><a class="dropdown-item graph-toggle" href="#">Escapements</a></li>
+                                <!--<li><a class="dropdown-item graph-toggle" href="#">Abundances</a></li>-->
+                                <li><a class="dropdown-item graph-toggle" data-graph="stocks" href="#">Total Mortalities</a></li>
+                                <li><a class="dropdown-item graph-toggle" data-graph="esc" href="#">Escapements</a></li>
+                                <li><a class="dropdown-item graph-toggle" data-graph="thr" href="#">Total Exploitation Rates</a></li>
+                                <li><a class="dropdown-item graph-toggle" data-graph="ohr" href="#">Ocean Exploitation Rates</a></li>
+                                <!--
                                 <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">CNR</a>
                                     <ul class="dropdown-menu">
                                     <li><a class="dropdown-item graph-toggle" href="#">Sublegal</a></li>
@@ -61,11 +68,13 @@
                                     <li><a class="dropdown-item graph-toggle" href="#">Terminal</a></li>
                                     </ul>
                                 </li>
-                                <li><a class="dropdown-item graph-toggle" href="#">True Term Run</a></li>
+                                -->
+                                <li><a class="dropdown-item graph-toggle" data-graph="trm" href="#">True Term Run</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
+                <!--
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Harvest</a>
                     <ul class="dropdown-menu">
@@ -78,6 +87,7 @@
                         </li>
                     </ul>
                 </li>
+              -->
               </ul>
             </div>
         </nav>

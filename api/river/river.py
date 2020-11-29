@@ -5,7 +5,7 @@ import zmq
 def create_app():
     config = configparser.ConfigParser()
     config.read('river.ini')
-    app = Flask(__name__)
+    app = Flask(__name__) 
     app.config['ZMQURL'] = config['app']['zmq_url']
 
     def get_sock():
