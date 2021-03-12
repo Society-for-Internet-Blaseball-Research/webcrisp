@@ -1,7 +1,7 @@
 FROM debian:bullseye
 
 RUN ["apt-get", "update"]
-RUN ["apt-get", "install","python3.8","python3-zmq","python3-pip","wget","--no-install-recommends","-y"]
+RUN ["apt-get", "install","git","python3","python3-zmq","python3-pip","wget","--no-install-recommends","-y"]
 RUN ["apt-get","dist-upgrade","-y"]
 RUN ["dpkg", "--add-architecture", "i386"]
 RUN ["apt-get", "update"]
@@ -22,4 +22,4 @@ COPY crisp.exe /home/crisp/crisp.exe
 WORKDIR /home/crisp/
 RUN winecfg
 
-CMD ["python3", "dam.py"]
+CMD ["python3","dam.py"]

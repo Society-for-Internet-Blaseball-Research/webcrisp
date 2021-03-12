@@ -1,1 +1,1 @@
-salmon_lib==0.3.3
+salmon_lib

@@ -5,7 +5,7 @@ services:
     image: "salmon/dam"
     networks:
       - ocean
-  
+
   river:
     image: "salmon/river"
     networks:
@@ -19,4 +19,4 @@ services:
       - "9999:80"
 
 networks:
-  ocean:
+ ocean:

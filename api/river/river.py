@@ -1,4 +1,4 @@
-from flask import g, Flask, app, request
+from flask import g, Flask, app, request, Response
 import configparser
 import zmq
 
@@ -13,6 +13,7 @@ def create_app():
             g.ctx = zmq.Context.instance()
         if 'sock' not in g:
             g.sock = g.ctx.socket(zmq.REQ)
+            g.sock.setsockopt(zmq.REQ_CORRELATE,1)
             print("connecting")
             g.sock.connect(app.config['ZMQURL'])
             print("connected")
@@ -29,7 +30,7 @@ def create_app():
         sock = get_sock()
         sock.send_json(request.get_json(force=True))
         s = sock.recv_string()
-        return s
+        return Response(s,mimetype="application/json")
 
     return app
 

@@ -3,6 +3,7 @@ import zmq
 import configparser
 import json
 from salmon_lib import Sim
+import logging
 
 def sim_thread(url, crisp_path, wine_path, context=None):
     context = context or zmq.Context.instance()
@@ -14,9 +15,15 @@ def sim_thread(url, crisp_path, wine_path, context=None):
     while True:
         try:
             obj = socket.recv_json()
+            with open("aaa.json","w") as f:
+                f.write(json.dumps(obj))
+            logging.debug('recv')
             sim = Sim()
+            logging.debug('here?')
             sim.from_sibr_conf(obj)
+            logging.debug(sim.__dict__)
             res = sim.run(crisp_path,wine_path=wine_path)
+            logging.debug(res)
             if res[0].returncode != 0:
                 socket.send_string(json.dumps({"err": True}))
             else:
@@ -25,7 +32,8 @@ def sim_thread(url, crisp_path, wine_path, context=None):
             pass 
 def main():
     # broker/dam 
-    print("configuring server<->crisp broker")
+    logging.basicConfig(level=logging.DEBUG,format='%(relativeCreated)6d %(threadName)s %(message)s',filename='please.log',filemode='w')
+    logging.debug("configuring server<->crisp broker")
     config = configparser.ConfigParser()
     config.read('broker.ini')
 
@@ -45,12 +53,12 @@ def main():
 
     # launch threads
     for i in range(config['broker'].getint('threads',4)):
-        print("Starting simulator thread #" + str(i))
+        logging.debug("Starting simulator thread #" + str(i))
         thread = threading.Thread(target=sim_thread, args=(url_worker,config['broker']['crisp'],config['broker'].get('wine_path','wine32')))
         thread.daemon = True
         thread.start()
 
-    print("Starting server<-> crisp broker")
+    logging.debug("Starting server<-> crisp broker")
 
     zmq.proxy(clients, workers)
 
