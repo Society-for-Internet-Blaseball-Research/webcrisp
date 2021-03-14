@@ -7,6 +7,7 @@ This relies on CRiSP Harvest v3.0.6, developed by UW Columbia Basin Research and
 ### components
 - api -> backend stack
 - modern -> modern web frontend, in development
+_moved to [webcrisp-frontend](https://github.com/Society-for-Internet-Blaseball-Research/webcrisp-frontend)_
 
 ### how do i use this
 for now, you can post a json file generated with [salmon_lib](https://github.com/Society-for-Internet-Blaseball-Research/salmon_lib) (an example is provided under sim.json on this repo) to `crisp.sibr.dev/api/sim`.
