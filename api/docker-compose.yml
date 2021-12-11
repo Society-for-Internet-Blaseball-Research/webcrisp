@@ -2,17 +2,20 @@ version: "3.8"
 
 services:
   dam:
-    image: "salmon/dam"
+    image: "salmon_dam"
+    build: ./dam
     networks:
       - ocean
 
   river:
-    image: "salmon/river"
+    image: "salmon_river"
+    build: ./river
     networks:
       - ocean
 
   nginx:
-    image: "salmon/nginx"
+    image: "salmon_nginx"
+    build: ./nginx
     networks:
       - ocean
     ports:
