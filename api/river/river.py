@@ -71,7 +71,7 @@ def create_app():
         data = request.get_json(force=True)
 
         return Response(
-            json.dumps([run_simple_sim(config, sock) for config in data]),
+            json.dumps([json.loads(run_simple_sim(config, sock)) for config in data]),
             mimetype="application/json",
         )
 
